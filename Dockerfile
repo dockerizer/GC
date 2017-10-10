@@ -4,7 +4,8 @@ LABEL maintainer "M Matos marco@marco.ae"
 
 ENV DOCKER_VERSION 1.12.4
 ENV EXCLUDE_FROM_GC "*:latest"
-FORCE_IMAGE_REMOVAL=1 docker-gc
+ENV FORCE_IMAGE_REMOVAL 1 
+ENV MINIMUM_IMAGES_TO_SAVE 10
 
 # We get curl so that we can avoid a separate ADD to fetch the Docker binary, and then we'll remove it
 RUN apk --update add bash curl \
